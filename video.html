@@ -12,47 +12,97 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
+
+    /* NAVBAR */
     .navbar {
       background: #ff6699;
       padding: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .navbar a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 5px 15px;
       font-weight: bold;
+      transition: 0.3s;
     }
+    .navbar a:hover {
+      color: #ffe6f0;
+      text-decoration: underline;
+    }
+
+    /* TITLE */
+    h1 {
+      margin-top: 20px;
+      color: #d6336c;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+      font-size: 1.8rem;
+    }
+
+    /* VIDEO SECTION */
     .video-container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 80vh;
-      position: relative;
+      padding: 20px;
     }
     video {
-      width: 80%;
+      width: 90%;
+      max-width: 800px;
       max-height: 500px;
       border-radius: 15px;
       box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
     }
+
+    /* BUTTONS */
+    .controls {
+      margin-top: 15px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
     .btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       background: #ff3366;
       color: white;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 16px;
       border-radius: 10px;
+      transition: 0.3s;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .btn:hover {
+      background: #cc0055;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+      .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 480px) {
+      video {
+        width: 100%;
+        max-height: 300px;
+      }
+      .controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <div class="navbar">
     <a href="index.html">Home</a>
     <a href="photos.html">Photos</a>
@@ -62,22 +112,25 @@
 
   <h1>🎥 Surprise Videos for You 💕</h1>
 
+  <!-- VIDEO PLAYER -->
   <div class="video-container">
-    <button class="btn prev" onclick="prevVideo()">⏮ Prev</button>
     <video id="videoPlayer" controls>
       <source src="video/1.mp4" type="video/mp4">
     </video>
-    <button class="btn next" onclick="nextVideo()">Next ⏭</button>
+    <div class="controls">
+      <button class="btn prev" onclick="prevVideo()">⏮ Prev</button>
+      <button class="btn next" onclick="nextVideo()">Next ⏭</button>
+    </div>
   </div>
 
   <script>
     const videos = [
-      "video/1.mp4",
-      "video/2.mp4",
-      "video/3.mp4",
-      "video/4.mp4",
-      "video/5.mp4",
-      "video/6.mp4"
+      "1.mp4",
+      "2.mp4",
+      "3.mp4",
+      "4.mp4",
+      "5.mp4",
+      "6.mp4"
     ];
     let currentVideo = 0;
     const player = document.getElementById("videoPlayer");
@@ -96,6 +149,9 @@
       currentVideo = (currentVideo - 1 + videos.length) % videos.length;
       loadVideo(currentVideo);
     }
+
+    // Auto next video after finishing
+    player.addEventListener("ended", nextVideo);
   </script>
 
 </body>
