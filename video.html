@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise Videos 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .navbar {
+      background: #ff6699;
+      padding: 15px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      position: relative;
+    }
+    video {
+      width: 80%;
+      max-height: 500px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+    }
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff3366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="photos.html">Photos</a>
+    <a href="index.html#wishes">Wishes</a>
+    <a href="videos.html">Videos</a>
+  </div>
+
+  <h1>🎥 Surprise Videos for You 💕</h1>
+
+  <div class="video-container">
+    <button class="btn prev" onclick="prevVideo()">⏮ Prev</button>
+    <video id="videoPlayer" controls>
+      <source src="video/1.mp4" type="video/mp4">
+    </video>
+    <button class="btn next" onclick="nextVideo()">Next ⏭</button>
+  </div>
+
+  <script>
+    const videos = [
+      "video/1.mp4",
+      "video/2.mp4",
+      "video/3.mp4",
+      "video/4.mp4",
+      "video/5.mp4",
+      "video/6.mp4"
+    ];
+    let currentVideo = 0;
+    const player = document.getElementById("videoPlayer");
+
+    function loadVideo(index) {
+      player.src = videos[index];
+      player.play();
+    }
+
+    function nextVideo() {
+      currentVideo = (currentVideo + 1) % videos.length;
+      loadVideo(currentVideo);
+    }
+
+    function prevVideo() {
+      currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+      loadVideo(currentVideo);
+    }
+  </script>
+
+</body>
+</html>

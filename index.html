@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday என் அவள்❤‍🩹</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN BOX -->
+  <div class="login-box" id="loginBox">
+    <h2>💕 Login to View Surprise 💕</h2>
+    <input id="email" type="email" placeholder="Enter Email" />
+    <input id="password" type="password" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
+  </div> 
+  
+
+  <!-- BIRTHDAY PAGE CONTENT (HIDDEN INITIALLY) -->
+  <div id="mainContent" style="display: none;">
+    <!-- NAVIGATION BAR -->
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="photos.html">Photos</a>
+      <a href="#wishes">Wishes</a>
+      <a href="video.html">Video</a>
+    </div>
+
+    <h1>Happy Birthday என் அவள்❤‍🩹</h1>
+    <!-- Main Round Photo -->
+    <img src="img/abi.jpg" alt="Abitha Birthday Photo" class="main-photo" />
+
+    <audio autoplay loop>
+      <source src="anbil-avan.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Wishes Section -->
+    <div id="wishes">
+      <p id="surpriseMsg">
+        Happy birthday என் அவள்❤‍🩹 It's been so nice knowing you & having you in my life.  
+        I just can't express my happiness, it's your bday today, I want to make you smile,  
+        smile more than you smile everyday. I wanna say sorry if I ever hurt you,  
+        I know I'm not perfect but you're special & you never thought of hurting me or leaving me.  
+        You don't know but I'm so excited for your bday.  
+        We have so many memories together, you’ve grown a year older,  
+        you are such a sweet person 💕 I wish every year I could be there with you to make you smile more.  
+        I promise I will try my best every day to make sure you aren't sad, you are happy,  
+        you’re precious to me & you deserve all the happiness.  
+        Happiest Birthday to you, May your life be filled with love & happiness  
+        and most of all may we always have each other always & forever 💑  
+      </p>
+      <div class="signature">— With Love, Gopinath 💘</div>
+    </div>
+
+   
+
+    <!-- Video Section -->
+    <div id="video">
+      <button class="btn" onclick="openVideo()">🎥 Click for Surprise Videos</button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" />
+  </div>
+
+  <!-- Video Popup -->
+  <div id="videoPopup">
+    <span id="closeBtn" onclick="closeVideo()">×</span>
+    <video id="videoPlayer" controls autoplay>
+      <source src="video/6.mp4" type="video/mp4">
+    </video>
+    <div class="video-controls">
+      <button onclick="prevVideo()">⏮ Prev</button>
+      <button onclick="nextVideo()">Next ⏭</button>
+    </div>
+  </div>
+
+  <script>
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      heart.innerText = "❤";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // Video popup with multiple videos
+    const videos = ["6.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
+    let currentVideo = 0;
+    const videoPlayer = document.getElementById("videoPlayer");
+
+    function openVideo() {
+      document.getElementById("videoPopup").style.display = "flex";
+      loadVideo(currentVideo);
+    }
+    function closeVideo() {
+      document.getElementById("videoPopup").style.display = "none";
+      videoPlayer.pause();
+    }
+    function loadVideo(index) {
+      videoPlayer.src = videos[index];
+      videoPlayer.play();
+    }
+    function nextVideo() {
+      currentVideo = (currentVideo + 1) % videos.length;
+      loadVideo(currentVideo);
+    }
+    function prevVideo() {
+      currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+      loadVideo(currentVideo);
+    }
+
+    // Lightbox
+    function openLightbox(img) {
+      document.getElementById("lightboxImg").src = img.src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    // LOGIN Logic
+    function login() {
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+
+      if (email && pass) {
+        alert("Login Successful 💖");
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      } else {
+        alert("Please enter email and password!");
+      }
+    }
+  </script>
+</body>
+</html>
