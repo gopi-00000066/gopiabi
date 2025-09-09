@@ -72,10 +72,7 @@
     <video id="videoPlayer" controls autoplay>
       <source src="1.mp4" type="mp4">
     </video>
-    <div class="video-controls">
-      <button onclick="prevVideo()">⏮ Prev</button>
-      <button onclick="nextVideo()">Next ⏭</button>
-    </div>
+  
   </div>
 
   <script>
@@ -92,7 +89,7 @@
     setInterval(createHeart, 300);
 
     // Video popup with multiple videos
-    const videos = ["6.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
+    const videos = ["1.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
     let currentVideo = 0;
     const videoPlayer = document.getElementById("videoPlayer");
 
@@ -143,5 +140,6 @@
 </body>
 
 </html>
+
 
 
