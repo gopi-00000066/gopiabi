@@ -70,7 +70,7 @@
   <div id="videoPopup">
     <span id="closeBtn" onclick="closeVideo()">×</span>
     <video id="videoPlayer" controls autoplay>
-      <source src="1.mp4" type="mp4">
+      <source src="1.mp4" type="video/mp4">
     </video>
   
   </div>
@@ -89,7 +89,7 @@
     setInterval(createHeart, 300);
 
     // Video popup with multiple videos
-    const videos = ["1.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
+    const videos = ["1.mp4"];
     let currentVideo = 0;
     const videoPlayer = document.getElementById("videoPlayer");
 
@@ -140,6 +140,7 @@
 </body>
 
 </html>
+
 
 
 
