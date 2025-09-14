@@ -18,6 +18,52 @@
         <img src="5.jpg" alt="Memory 5" onclick="openLightbox(this)" />
       </div>
     </div>
+
+    <!-- PHOTO GALLERY -->
+
+
+
+<style>
+  .photo-gallery {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .photo-gallery h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ff2e63;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Mobile view adjustments */
+  @media (max-width: 600px) {
+    .photo-gallery h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+    
 </body>
 
 </html>
+
