@@ -8,12 +8,8 @@
 </head>
 <body>
 
-  <!-- LOGIN BOX -->
-
-  
-
-  <!-- BIRTHDAY PAGE CONTENT (HIDDEN INITIALLY) -->
-  <div id="mainContent" style="display: none;">
+  <!-- BIRTHDAY PAGE CONTENT -->
+  <div id="mainContent">
     <!-- NAVIGATION BAR -->
     <div class="navbar">
       <a href="#">Home</a>
@@ -24,7 +20,7 @@
 
     <h1>Happy Birthday என் அவள்❤‍🩹</h1>
     <!-- Main Round Photo -->
-    <img src="abi.jpg" alt="Abitha Birthday Photo" class="main-photo" />
+    <img src="img/abi.jpg" alt="Abitha Birthday Photo" class="main-photo" />
 
     <audio autoplay loop>
       <source src="anbil-avan.mp3" type="audio/mpeg">
@@ -34,7 +30,7 @@
     <div id="wishes">
       <p id="surpriseMsg">
         Happy birthday என் அவள்❤‍🩹 It's been so nice knowing you & having you in my life.  
-        I just can't express my happiness, it's your bday today, I want to make you smile,  
+        I just can't express my happiness, it's your birthday today, I want to make you smile,  
         smile more than you smile everyday. I wanna say sorry if I ever hurt you,  
         I know I'm not perfect but you're special & you never thought of hurting me or leaving me.  
         You don't know but I'm so excited for your bday.  
@@ -47,8 +43,6 @@
       </p>
       <div class="signature">— With Love, Gopinath 💘</div>
     </div>
-
-   
 
     <!-- Video Section -->
     <div id="video">
@@ -65,9 +59,12 @@
   <div id="videoPopup">
     <span id="closeBtn" onclick="closeVideo()">×</span>
     <video id="videoPlayer" controls autoplay>
-      <source src="1.mp4" type="video/mp4">
+      <source src="video/6.mp4" type="video/mp4">
     </video>
-  
+    <div class="video-controls">
+      <button onclick="prevVideo()">⏮ Prev</button>
+      <button onclick="nextVideo()">Next ⏭</button>
+    </div>
   </div>
 
   <script>
@@ -84,7 +81,7 @@
     setInterval(createHeart, 300);
 
     // Video popup with multiple videos
-    const videos = ["1.mp4"];
+    const videos = ["6.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4"];
     let currentVideo = 0;
     const videoPlayer = document.getElementById("videoPlayer");
 
@@ -97,7 +94,7 @@
       videoPlayer.pause();
     }
     function loadVideo(index) {
-      videoPlayer.src = videos[index];
+      videoPlayer.src = "video/" + videos[index];
       videoPlayer.play();
     }
     function nextVideo() {
@@ -117,16 +114,6 @@
     function closeLightbox() {
       document.getElementById("lightbox").style.display = "none";
     }
-
-    // LOGIN Logic
-   
   </script>
 </body>
-
 </html>
-
-
-
-
-
-
